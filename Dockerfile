@@ -9,8 +9,8 @@ WORKDIR /workdir
 
 COPY shell.sh /workdir/
 
-RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
-RUN  apt-get clean
+#RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+#RUN  apt-get clean
 RUN apt-get update \
   && apt-get install -y android-tools-adb \
   && rm -rf /var/lib/apt/lists/* \
