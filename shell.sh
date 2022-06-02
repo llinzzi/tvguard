@@ -22,14 +22,16 @@ checkvol(){
         while :
         do
                 VOL=$(adb shell media volume --get | grep  -E -o "is (\w+)" | awk '{print $2}')
-                if [ $? -ne 0 ]; then
-                        adb disconnect
+                if [ -n "$(echo $VOL| sed -n "/^[0-9]\+$/p")" ]; then
+                        DIFVOL=`expr $VOL - $OVOL`
+                        OVOL=$VOL
+                        echo VOL:$VOL DIFVOL:$DIFVOL
+                else
                         echo disconnect
-                        break
+                        adb disconnect
+                        break                
                 fi
-                DIFVOL=`expr $VOL - $OVOL`
-                OVOL=$VOL
-                echo VOL:$VOL DIFVOL:$DIFVOL
+
                 if [ $DIFVOL -gt 2 ]; then
                         echo too fast
                         adb shell media volume --show --set 0
