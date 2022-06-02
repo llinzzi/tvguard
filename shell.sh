@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 echo "start"
 echo connect to $IP 
 
