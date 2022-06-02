@@ -4,17 +4,17 @@ set -x
 echo "start"
 echo connect to $IP 
 
-CONNECT=$(adb devices | grep "$IP" -c )
+CONNECT=0
 
 OVOL=20
 
 checkconnect(){
-        while [ $CONNECT -lt 1 ];
+        while [ $CONNECT -lt 2 ];
         do
                 sleep 30
                 echo $CONNECT
                 adb connect $IP
-                CONNECT=$(adb devices | grep $IP -c )
+                CONNECT=$(adb devices | grep device -c )
         done
         checkvol
 }
