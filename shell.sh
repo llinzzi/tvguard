@@ -5,7 +5,7 @@ echo connect to $IP
 
 CONNECT=$(adb devices | grep "$IP" -c )
 
-OVOL = 20
+OVOL=20
 
 while [ $CONNECT -lt 1 ];
 do
