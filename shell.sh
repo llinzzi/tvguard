@@ -18,8 +18,9 @@ done
 while :
 do
         VOL=$(adb shell media volume --get | grep  -E -o "is (\w+)" | awk '{print $2}')
-        echo VOL:$VOL
         DIFVOL=`expr $VOL - $OVOL`
+        OVOL=$VOL
+        echo VOL:$VOL DIFVOL:$DIFVOL
         if [ $DIFVOL -gt 2 ]; then
                 echo too fast
                 adb shell media volume --show --set 0
