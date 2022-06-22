@@ -8,7 +8,7 @@ OVOL=20
 
 checkconnect(){
         CONNECT=0
-        while [ $CONNECT -lt 10 ];
+        while [ $CONNECT -lt 2 ];
         do
                 echo $CONNECT
                 adb connect $IP
