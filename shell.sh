@@ -8,7 +8,7 @@ OVOL=20
 
 checkconnect(){
         CONNECT=0
-        while [ $CONNECT -lt 2 ];
+        while [ $CONNECT -lt 10 ];
         do
                 echo $CONNECT
                 adb connect $IP
@@ -36,7 +36,7 @@ checkvol(){
                         echo too fast
                         adb shell media volume --show --set 0
                 fi
-                if [ $VOL -gt 20 ]; then
+                if [ $VOL -gt 25 ]; then
                         echo to larg
                         adb shell media volume --show --set 0
                 fi
