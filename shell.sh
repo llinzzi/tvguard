@@ -32,11 +32,11 @@ checkvol(){
                         break                
                 fi
 
-                if [ $DIFVOL -gt 10 ]; then
+                if [ $DIFVOL -gt 20 ]; then
                         echo too fast
                         adb shell media volume --show --set 0
                 fi
-                if [ $VOL -gt 25 ]; then
+                if [ $VOL -gt 35 ]; then
                         echo to larg
                         adb shell media volume --show --set 0
                 fi
